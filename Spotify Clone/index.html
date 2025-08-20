@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spotify (Clone)</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-inner">
+        <div class="brand">
+          <img src="logo.png" alt="Spotify"/>
+        </div>
+
+        <nav class="primary-nav">
+          <a class="active"><i class="fa-solid fa-house"></i><span>Home</span></a>
+          <a><i class="fa-solid fa-magnifying-glass"></i><span>Search</span></a>
+          <a><i class="fa-regular fa-square-plus"></i><span>Create Playlist</span></a>
+          <a><i class="fa-regular fa-heart"></i><span>Liked Songs</span></a>
+        </nav>
+
+        <div class="library">
+          <div class="lib-header">
+            <span>Your Library</span>
+            <button class="pill">+</button>
+          </div>
+
+          <div class="lib-card">
+            <h4>Create your first playlist</h4>
+            <p>It’s easy, we’ll help you</p>
+            <button class="button solid">Create playlist</button>
+          </div>
+
+          <ul class="footer-links">
+            <li>Legal</li><li>Privacy Center</li><li>Privacy Policy</li>
+            <li>Cookies</li><li>About Ads</li><li>Accessibility</li>
+          </ul>
+
+          <button class="language"><i class="fa-solid fa-globe"></i> English</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <!-- Top bar -->
+      <header class="topbar">
+        <div class="nav-buttons">
+          <button class="round"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="round"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+
+        <div class="search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="What do you want to play?" />
+        </div>
+
+        <div class="top-links">
+          <a href="#" class="top-link">Premium</a>
+          <a href="#" class="top-link">Support</a>
+          <a href="#" class="top-link">Download</a>
+          <span class="divider"></span>
+          <a href="#" class="top-link">Sign up</a>
+          <a href="#" class="button login">Log in</a>
+        </div>
+      </header>
+
+      <!-- Content sections -->
+      <section class="section">
+        <div class="section-header">
+          <h2>Trending songs</h2>
+          <a class="section-link" href="#">Show all</a>
+        </div>
+        <div class="carousel">
+          <button class="caro-btn left" data-target="#trend"><i class="fa-solid fa-chevron-left"></i></button>
+          <div class="card-row" id="trend">
+            <!-- JS injects cards 1..10 -->
+          </div>
+          <button class="caro-btn right" data-target="#trend"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <h2>Popular artists</h2>
+          <a class="section-link" href="#">Show all</a>
+        </div>
+        <div class="carousel">
+          <button class="caro-btn left" data-target="#artists"><i class="fa-solid fa-chevron-left"></i></button>
+          <div class="card-row circle" id="artists">
+            <!-- JS injects round cards 1..8 -->
+          </div>
+          <button class="caro-btn right" data-target="#artists"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <h2>Made for you</h2>
+          <a class="section-link" href="#">Show all</a>
+        </div>
+        <div class="carousel">
+          <button class="caro-btn left" data-target="#foryou"><i class="fa-solid fa-chevron-left"></i></button>
+          <div class="card-row" id="foryou">
+            <!-- JS injects cards 3..8 -->
+          </div>
+          <button class="caro-btn right" data-target="#foryou"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Bottom mini player -->
+  <footer class="mini-player">
+    <div class="mp-left">
+      <img id="mp-cover" src="1.jpg" alt="">
+      <div class="mp-meta">
+        <div id="mp-title">Track 1</div>
+        <div class="mp-artist">NCS Release</div>
+      </div>
+    </div>
+
+    <div class="mp-center">
+      <div class="mp-controls">
+        <button id="prev" class="mp-btn"><i class="fa-solid fa-backward-step"></i></button>
+        <button id="play" class="mp-btn primary"><i class="fa-regular fa-circle-play"></i></button>
+        <button id="next" class="mp-btn"><i class="fa-solid fa-forward-step"></i></button>
+      </div>
+      <div class="mp-progress">
+        <span id="mp-cur">0:00</span>
+        <div id="mp-bar" class="bar">
+          <div id="mp-fill" class="bar-fill"></div>
+          <div id="mp-knob" class="bar-knob"></div>
+        </div>
+        <span id="mp-dur">0:00</span>
+      </div>
+    </div>
+
+    <div class="mp-right">
+      <img id="gif" src="playing.gif" class="gif" alt="">
+      <i class="fa-solid fa-volume-high"></i>
+      <input type="range" id="vol" min="0" max="100" value="70">
+    </div>
+  </footer>
+
+  <!-- Audio element -->
+  <audio id="audio"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
